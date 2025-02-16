@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vesti</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/icon" href="public/img/logo.png">
+    <style>
+        .trans {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out
+        }
+
+        .trans.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @layer utilities {
+            /* Chrome, Safari and Opera */
+            .no-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+
+            .no-scrollbar {
+                -ms-overflow-style: none; /* IE and Edge */
+                scrollbar-width: none; /* Firefox */
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#0b0d17] text-white font-roboto no-scrollbar overflow-y-auto">
+<header class="bg-[#000] fixed w-full z-10">
+    <nav class="flex items-center justify-between p-3">
+        <div class="flex items-center">
+            <img src="public/img/logo.png" class="h-12 w-12 mr-3" alt="Logo">
+            <div class="logo">
+                <a href="index.html" class="text-2xl font-bold tracking-widest">Vesti</a>
+                <p class="mt-0.5 text-sm">Your guide to retirement</p>
+            </div>
+        </div>
+
+        <!-- Hamburger Icon for Mobile -->
+        <div class="md:hidden">
+            <button id="hamburger" class="text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                     stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Menu Links (Hidden on mobile by default) -->
+        <ul id="nav-links" class="hidden md:flex space-x-8 items-center mr-3">
+            <li><a href="#contact" class="hover:text-[#7f00ff]">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Mobile Menu (Hidden initially, will expand when hamburger is clicked) -->
+    <ul id="mobile-menu" class="mobile-menu flex-col bg-[#1a1c2c] bg-opacity-90 md:hidden overflow-hidden max-h-0 ">
+        <li><a href="#contact" class="block py-2 px-4 text-white hover:text-[#7f00ff]">Contact</a></li>
+    </ul>
+</header>
+
+<section class="hero relative flex items-center justify-center h-screen bg-cover bg-center">
+    <div class="absolute inset-0 bg-black opacity-70"></div>
+    <div class="relative z-10 text-center px-4">
+        <h2 class="text-4xl md:text-5xl font-bold mb-5 trans">Vesti</h2>
+        <p class="max-w-2xl mx-auto mb-8 trans">Helps business owners sell their business to the right people</p>
+    </div>
+</section>
+
+
+<section id="our-story" class="py-20 text-center trans">
+    <h2 class="text-3xl font-bold mb-5">Story</h2>
+    <p class="max-w-xl mx-auto">Bla bla bla, story story</p>
+</section>
+
+<section id="but-wait" class="py-20 text-center trans">
+    <h2 class="text-3xl font-bold mb-5">Team</h2>
+    <p class="max-w-xl mx-auto">We read books</p>
+</section>
+
+<section id="our-values" class="py-20 text-center trans">
+    <h2 class="text-3xl font-bold mb-5">Values</h2>
+    <p class="max-w-xl mx-auto">Every good value</p>
+</section>
+
+
+<section id="projects" class="py-20 text-center trans">
+    <h2 class="text-3xl font-bold mb-10">Success stories</h2>
+    <div class="grid gap-6 md:grid-cols-2 px-6">
+        <div class="bg-gray-800 bg-opacity-30 p-6 rounded-lg hover:bg-opacity-50 transition">
+            <h3 class="text-xl font-bold mb-3">Farm owner</h3>
+            <p>Helped farm owners sell their farm to people willing to keep it going</p>
+        </div>
+        <div class="bg-gray-800 bg-opacity-30 p-6 rounded-lg hover:bg-opacity-50 transition">
+            <h3 class="text-xl font-bold mb-3">Helicopter company</h3>
+            <p>Helped a helicopter company sell their company to people willing to keep it going!</p>
+        </div>
+    </div>
+</section>
+
+
+<section id="join" class="py-20 text-center trans">
+    <h2 class="text-3xl font-bold mb-5">Tell us!</h2>
+    <p class="max-w-xl mx-auto mb-8">Do you want to help us find out if this is a necessary service?</p>
+    <a href="https://forms.gle/eZnneLA2PZhGyX4KA"
+       class="bg-purple-600 hover:bg-purple-800 text-white font-bold py-3 px-6 rounded-full">Tell us here!</a>
+</section>
+
+
+<section id="contact" class="py-20 text-center trans">
+    <h2 class="text-3xl font-bold mb-5">Contact</h2>
+    <p><a href="mailto:halvoredland@gmail.com" class="hover:text-blue-400">E-mail me!</a></p>
+    <p class="mt-2">halvoredland@gmail.com</p>
+</section>
+
+
+<footer class="bg-[#000] text-center p-2">
+    <ul class="flex justify-center space-x-4 mt-2">
+        <li><a href="" class="hover:text-[#7f00ff]">Linkedin</a>
+        </li>
+    </ul>
+    <p class="mt-3">&copy; 2025 Vesti. All rights reserved.</p>
+</footer>
+
+<!-- JavaScript for Hamburger Menu Toggle -->
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    hamburger.addEventListener('click', () => {
+        // Toggle the max height between 0 and 500px for the mobile menu
+        if (mobileMenu.classList.contains('max-h-0')) {
+            mobileMenu.classList.remove('max-h-0');
+            mobileMenu.classList.add('max-h-96');  // Arbitrary height that fits the menu items
+        } else {
+            mobileMenu.classList.add('max-h-0');
+            mobileMenu.classList.remove('max-h-96');
+        }
+    });
+
+    //"Fancy" animation
+    document.addEventListener('DOMContentLoaded', function () {
+        // Reset scroll position
+        window.scrollTo(0, 0);
+
+        const sections = document.querySelectorAll('.trans');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, {threshold: 0.1});
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    });
+</script>
+</body>
+</html>
