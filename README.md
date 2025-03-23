@@ -1,2 +1,2 @@
 # homepage
-simple homepage
+simpler homepage
