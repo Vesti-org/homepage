@@ -11,17 +11,6 @@
         /* Define CSS Variables for theme colors */
         :root {
             /* Light mode (default) */
-            --bg-color: #ffffff;
-            --text-color: #000000;
-            --header-bg: #f0f0f0;
-            --mobile-menu-bg: #e0e0e0;
-            --hero-overlay-bg: #ffffff;
-            --card-bg: #f5f5f5;
-            --card-hover-bg: #eaeaea;
-            --accent-color: #7f00ff;
-        }
-        .dark-mode {
-            /* Dark mode variables (toggle by adding the .dark-mode class to the <body> element) */
             --bg-color: #0b0d17;
             --text-color: #ffffff;
             --header-bg: #000;
@@ -41,24 +30,9 @@
         header {
             background: var(--header-bg);
         }
-        #mobile-menu {
-            background: var(--mobile-menu-bg);
-        }
-        .hero-overlay {
-            background: var(--hero-overlay-bg);
-            opacity: 0.7;
-        }
-        .project-card {
-            background: var(--card-bg);
-            transition: background 0.3s ease;
-        }
-        .project-card:hover {
-            background: var(--card-hover-bg);
-        }
         a:hover {
             color: var(--accent-color);
         }
-
         /* Animation classes */
         .trans {
             opacity: 0;
@@ -82,98 +56,16 @@
     </style>
 </head>
 <body class="no-scrollbar overflow-y-auto">
-<header class="fixed w-full z-10">
-    <nav class="flex items-center justify-between p-3">
-        <div class="flex items-center">
-            <img src="public/img/logo.png" class="h-12 w-12 mr-3" alt="Logo">
-            <div class="logo">
-                <a href="index.html" class="text-2xl font-bold tracking-widest">Vesti</a>
-                <p class="mt-0.5 text-sm">Your guide to retirement</p>
-            </div>
-        </div>
 
-        <!-- Hamburger Icon for Mobile -->
-        <div class="md:hidden">
-            <button id="hamburger" class="focus:outline-none">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-            </button>
-        </div>
-
-        <!-- Menu Links (Hidden on mobile by default) -->
-        <ul id="nav-links" class="hidden md:flex space-x-8 items-center mr-3">
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <!-- Mobile Menu (Hidden initially, will expand when hamburger is clicked) -->
-    <ul id="mobile-menu" class="mobile-menu flex-col md:hidden overflow-hidden max-h-0">
-        <li><a href="#contact" class="block py-2 px-4">Contact</a></li>
-    </ul>
-</header>
-
-<section class="hero relative flex items-center justify-center h-screen bg-cover bg-center"--> <!--style="background-image: url('your-hero-image.jpg');">-->
-    <div class="absolute inset-0 hero-overlay"></div>
+<section class="relative flex items-center justify-center h-screen bg-cover bg-center">
     <div class="relative z-10 text-center px-4">
         <h2 class="text-4xl md:text-5xl font-bold mb-5 trans">Vesti</h2>
         <p class="max-w-2xl mx-auto mb-8 trans">
-            Helps business owners sell their business to the right people
+            To be announced
         </p>
     </div>
 </section>
 
-<section id="our-story" class="py-20 text-center trans">
-    <h2 class="text-3xl font-bold mb-5">Story</h2>
-    <p class="max-w-xl mx-auto">Bla bla bla, story story</p>
-</section>
-
-<section id="but-wait" class="py-20 text-center trans">
-    <h2 class="text-3xl font-bold mb-5">Team</h2>
-    <p class="max-w-xl mx-auto">We read books</p>
-</section>
-
-<section id="our-values" class="py-20 text-center trans">
-    <h2 class="text-3xl font-bold mb-5">Values</h2>
-    <p class="max-w-xl mx-auto">Every good value</p>
-</section>
-
-<section id="projects" class="py-20 text-center trans">
-    <h2 class="text-3xl font-bold mb-10">Success stories</h2>
-    <div class="grid gap-6 md:grid-cols-2 px-6">
-        <div class="project-card p-6 rounded-lg">
-            <h3 class="text-xl font-bold mb-3">Farm owner</h3>
-            <p>
-                Helped farm owners sell their farm to people willing to keep it going
-            </p>
-        </div>
-        <div class="project-card p-6 rounded-lg">
-            <h3 class="text-xl font-bold mb-3">Helicopter company</h3>
-            <p>
-                Helped a helicopter company sell their company to people willing to keep it going!
-            </p>
-        </div>
-    </div>
-</section>
-
-<section id="join" class="py-20 text-center trans">
-    <h2 class="text-3xl font-bold mb-5">Tell us!</h2>
-    <p class="max-w-xl mx-auto mb-8">
-        Do you want to help us find out if this is a necessary service?
-    </p>
-    <a
-            href="https://forms.gle/9kPHHDFL8aP1ZGU67"
-            class="bg-purple-600 hover:bg-purple-800 font-bold py-3 px-6 rounded-full"
-            style="color: var(--text-color);"
-    >Tell us here!</a
-    >
-</section>
-
-<section id="contact" class="py-20 text-center trans">
-    <h2 class="text-3xl font-bold mb-5">Contact</h2>
-    <p><a href="mailto:halvoredland@gmail.com">E-mail me!</a></p>
-    <p class="mt-2">halvoredland@gmail.com</p>
-</section>
 
 <footer class="text-center p-2" style="background: var(--header-bg);">
     <ul class="flex justify-center space-x-4 mt-2">
@@ -184,20 +76,6 @@
 
 <!-- JavaScript for Hamburger Menu Toggle -->
 <script>
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    hamburger.addEventListener('click', () => {
-        // Toggle the max height between 0 and an expanded height for the mobile menu
-        if (mobileMenu.classList.contains('max-h-0')) {
-            mobileMenu.classList.remove('max-h-0');
-            mobileMenu.classList.add('max-h-96');
-        } else {
-            mobileMenu.classList.add('max-h-0');
-            mobileMenu.classList.remove('max-h-96');
-        }
-    });
-
     // "Fancy" animation
     document.addEventListener('DOMContentLoaded', function () {
         // Reset scroll position
